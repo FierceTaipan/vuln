@@ -652,3 +652,6 @@ https://sking7.github.io/articles/218647712.html
 https://github.com/fuzzdb-project/fuzzdb
 
 https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.txt
+
+https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt
+
