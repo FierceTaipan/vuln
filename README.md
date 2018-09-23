@@ -687,17 +687,29 @@ https://gist.github.com/staaldraad/01415b990939494879b4
 
 SecLists (Discovery, Fuzzing, Shell, Directory Hunting, CMS)
 
-https://github.com/danielmiessler/SecLists
+danielmiessler - https://github.com/danielmiessler/SecLists
 
-https://github.com/swisskyrepo/PayloadsAllTheThings
+swisskyrepo - https://github.com/swisskyrepo/PayloadsAllTheThings
 
-https://sking7.github.io/articles/218647712.html
+XSS Filter Evasion Cheat Sheet - https://sking7.github.io/articles/218647712.html
 
-https://github.com/fuzzdb-project/fuzzdb
+cujanovic - https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.txt
 
-https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.txt
+NickSanzotta -  https://github.com/NickSanzotta/BurpIntruder
 
-https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt
+shadsidd  - https://github.com/shadsidd
+
+shikari1337 -  https://www.shikari1337.com/list-of-xss-payloads-for-cross-site-scripting/
+
+7ioSecurity  - https://github.com/7ioSecurity/XSS-Payloads
+
+xmendez  - https://github.com/xmendez/wfuzz
+
+minimaxir  - https://github.com/minimaxir/big-list-of-naughty-strings
+
+xsscx  - https://github.com/xsscx/Commodity-Injection-Signatures
+
+TheRook  - https://github.com/TheRook/subbrute
 
 Directory wordlist
 https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056
