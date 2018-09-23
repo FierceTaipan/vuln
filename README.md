@@ -653,8 +653,41 @@ Parameter pollution in social sharing buttons
 https://example.com”|ls “-la   
 ```
 
+**CheatSheet**
 
-https://github.com/danielmiessler/SecLists/tree/master/Fuzzing
+Pentest Bookmarks
+https://github.com/kurobeats/pentest-bookmarks/blob/master/BookmarksList.md
+
+Awesome OSINT Cheat-sheet
+https://github.com/jivoi/awesome-osint
+
+Awesome Pentest Cheat-sheet
+https://github.com/enaqx/awesome-pentest
+
+Bug Bounty Cheat-sheet
+https://github.com/EdOverflow/bugbounty-cheatsheet
+
+Awesome Hacking Cheat-sheet
+https://github.com/Hack-with-Github/Awesome-Hacking
+
+Awesome-Infosec Cheat-Sheet
+https://github.com/onlurking/awesome-infosec
+
+SQL Injection Cheat-Sheet
+http://pentestmonkey.net/blog/mssql-sql-injection-cheat-sheet/
+
+XSS Cheat-Sheet
+https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
+
+XXE Payload
+https://gist.github.com/staaldraad/01415b990939494879b4
+
+
+**Wordlist**
+
+SecLists (Discovery, Fuzzing, Shell, Directory Hunting, CMS)
+
+https://github.com/danielmiessler/SecLists
 
 https://github.com/swisskyrepo/PayloadsAllTheThings
 
@@ -666,3 +699,14 @@ https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.t
 
 https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt
 
+Directory wordlist
+https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056
+
+Portable Wordlist
+https://github.com/berzerk0/Probable-Wordlists
+
+FUZZ-DB
+https://github.com/fuzzdb-project/fuzzdb
+
+Mix-Wordlist
+https://github.com/jeanphorn/wordlist
