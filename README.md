@@ -682,6 +682,9 @@ https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
 XXE Payload
 https://gist.github.com/staaldraad/01415b990939494879b4
 
+SSRF
+https://github.com/cujanovic/SSRF-Testing
+
 
 **Wordlist**
 
