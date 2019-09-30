@@ -839,8 +839,30 @@ https://example.com”|ls “-la
 
 **CheatSheet**
 
-Pentest Bookmarks
-https://github.com/kurobeats/pentest-bookmarks/blob/master/BookmarksList.md
+Bug Bounty Cheat-sheet
+https://github.com/EdOverflow/bugbounty-cheatsheet
+
+Sql-injection
+https://portswigger.net/web-security/sql-injection/cheat-sheet
+https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/
+http://pentestmonkey.net/blog/mssql-sql-injection-cheat-sheet/
+
+Xss
+https://portswigger.net/research/one-xss-cheatsheet-to-rule-them-all
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+http://html5sec.org/
+https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
+https://github.com/payloadbox/xss-payload-list
+https://github.com/s0md3v/AwesomeXSS
+
+XXE Payload
+https://gist.github.com/staaldraad/01415b990939494879b4
+
+SSRF
+https://github.com/cujanovic/SSRF-Testing
+
+Metasploit
+https://www.offensive-security.com/metasploit-unleashed/
 
 Awesome OSINT Cheat-sheet
 https://github.com/jivoi/awesome-osint
@@ -848,26 +870,17 @@ https://github.com/jivoi/awesome-osint
 Awesome Pentest Cheat-sheet
 https://github.com/enaqx/awesome-pentest
 
-Bug Bounty Cheat-sheet
-https://github.com/EdOverflow/bugbounty-cheatsheet
-
 Awesome Hacking Cheat-sheet
 https://github.com/Hack-with-Github/Awesome-Hacking
 
 Awesome-Infosec Cheat-Sheet
 https://github.com/onlurking/awesome-infosec
 
-SQL Injection Cheat-Sheet
-http://pentestmonkey.net/blog/mssql-sql-injection-cheat-sheet/
+PENTESTING-BIBLE
+https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE
 
-XSS Cheat-Sheet
-https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
-
-XXE Payload
-https://gist.github.com/staaldraad/01415b990939494879b4
-
-SSRF
-https://github.com/cujanovic/SSRF-Testing
+Pentest Bookmarks
+https://github.com/kurobeats/pentest-bookmarks/blob/master/BookmarksList.md
 
 
 **Wordlist**
