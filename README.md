@@ -838,7 +838,7 @@ https://example.com”|ls “-la
 ```
 
 **CheatSheet**
-
+```
 Bug Bounty Cheat-sheet
 https://github.com/EdOverflow/bugbounty-cheatsheet
 
@@ -881,7 +881,7 @@ https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE
 
 Pentest Bookmarks
 https://github.com/kurobeats/pentest-bookmarks/blob/master/BookmarksList.md
-
+```
 
 **Wordlist**
 
