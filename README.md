@@ -753,6 +753,9 @@ PUT /rest/import/users?test=1 ...
 Часть 1 – What is XML External Entity (XXE)? https://www.acunetix.com/blog/articles/xml-external-entity-xxe-vulnerabilities/
 Часть 2 – XML External Entity (XXE) limitations https://www.acunetix.com/blog/articles/xml-external-entity-xxe-limitations/
 Часть 3 – Out-of-band XML External Entity (OOB-XXE) https://www.acunetix.com/blog/articles/band-xml-external-entity-oob-xxe/
+
+Exploiting-xxe-with-local-dtd-files
+https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/
 ```
 
 **CSRF/XSRF(Cross Site Request Forgery)**
