@@ -900,10 +900,13 @@ Parameter pollution in social sharing buttons
 Сначала я перечислил разные субдомены для starbucks.com. Затем я проверил, есть ли в этих доменах запись cname, указывающая на azurewebsites.net. Для каждого соответствующего домена я выполнил запрос DNS для записи в записи CNAME. Если это возвращает NXDOMAIN, поддомен обычно может быть принят, и возможно зарегистрировать домен, который соответствует записи NXDOMAIN CNAME.
 ```
 
-**Удаленное выполнение кода**
+**Удаленное выполнение кода (RCE)**
 ```
 .../index.php?page=1;phpinfo()
 https://example.com”|ls “-la   
+
+os-command-injection
+https://portswigger.net/web-security/os-command-injection
 ```
 
 **CheatSheet**
