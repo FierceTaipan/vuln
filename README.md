@@ -578,6 +578,10 @@ Allow - Разрешает доступ к определенной части �
 
 **google dork**
 ```
+https://www.exploit-db.com/google-hacking-database
+https://www.youtube.com/watch?v=d3NzsrmVrlw
+https://www.blackhat.com/presentations/bh-europe-05/BH_EU_05-Long.pdf
+
 «site:trello.com AND intext:@gmail\.com AND intext:password»
 ```
 
