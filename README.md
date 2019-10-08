@@ -1118,3 +1118,7 @@ https://github.com/fuzzdb-project/fuzzdb
 
 Mix-Wordlist
 https://github.com/jeanphorn/wordlist
+
+Fingerprinting
+https://builtwith.com/
+https://wappalyzer.com/
