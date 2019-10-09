@@ -1122,3 +1122,6 @@ https://github.com/jeanphorn/wordlist
 Fingerprinting
 https://builtwith.com/
 https://wappalyzer.com/
+
+Blind XSS
+https://xsshunter.com/
